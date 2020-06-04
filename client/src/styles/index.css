@@ -28,3 +28,12 @@ nav img {
 }
 
 #mapid { height: 180px; }
+
+.content-container {
+  display: flex;
+}
+
+.leaflet-container {
+  width: 600px;
+  height: 600px;
+}
