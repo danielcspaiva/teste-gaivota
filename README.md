@@ -1,6 +1,6 @@
 ## Gaivota FullStack Test
 
-Gaivota FullStack Test it's a base project using MERN (MongoDB, Express, React, and NodeJS).
+Gaivota FullStack Test is a base project using MERN (MongoDB, Express, React, and NodeJS).
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Get Started
@@ -8,8 +8,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ### 1. Pre-requisites
 
 - [NodeJs](https://nodejs.org/en/) - Server side environment
-- [NPM](https://npmjs.org/) - Node manager package
-- (Optional) [Yarn](https://yarnpkg.com/lang/en/) - Node manager package alternative
+- [NPM](https://npmjs.org/) - Node package manager
+- (Optional) [Yarn](https://yarnpkg.com/lang/en/) - Node package manager alternative
 - Cloning this repo
 ```
  $ git clone git@github.com:gaivota-ai/gaivota-full-stack-test.git
