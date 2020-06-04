@@ -38,6 +38,8 @@ app.get("/", (req, res) => {
 	res.status(200).send("Gaivota Test");
 });
 
+app.use("/data", require("../routes/getData"));
+
 app.listen(PORT !== "undefined" ? PORT : 5000, () => {
 	console.warn("App is running at http://localhost:" + PORT);
 });
