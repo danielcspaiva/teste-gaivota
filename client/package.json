@@ -30,6 +30,7 @@
     "react-scripts": "3.2.0"
   },
   "devDependencies": {
+    "@babel/plugin-transform-flow-strip-types": "^7.10.1",
     "customize-cra": "^0.8.0",
     "eslint-config-prettier": "^4.3.0",
     "eslint-plugin-prettier": "^3.1.1",
