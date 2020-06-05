@@ -7,7 +7,8 @@ import {
   YAxis,
   LineChart,
   Line,
-  CartesianGrid
+  CartesianGrid,
+  ResponsiveContainer
 } from "recharts";
 
 export default function Graph({ farm, data }) {
@@ -72,42 +73,80 @@ export default function Graph({ farm, data }) {
     }
 
     setGraphData([
-      { month: "jan", value: avgDataForGraph[0] },
-      { month: "feb", value: avgDataForGraph[1] },
-      { month: "mar", value: avgDataForGraph[2] },
-      { month: "apr", value: avgDataForGraph[3] },
-      { month: "may", value: avgDataForGraph[4] },
-      { month: "jun", value: avgDataForGraph[5] },
-      { month: "jul", value: avgDataForGraph[6] },
-      { month: "aug", value: avgDataForGraph[7] },
-      { month: "sep", value: avgDataForGraph[8] },
-      { month: "oct", value: avgDataForGraph[9] },
-      { month: "nov", value: avgDataForGraph[10] },
-      { month: "dec", value: avgDataForGraph[11] }
+      {
+        month: "jan",
+        value: avgDataForGraph[0]
+      },
+      {
+        month: "feb",
+        value: avgDataForGraph[1]
+      },
+      {
+        month: "mar",
+        value: avgDataForGraph[2]
+      },
+      {
+        month: "apr",
+        value: avgDataForGraph[3]
+      },
+      {
+        month: "may",
+        value: avgDataForGraph[4]
+      },
+      {
+        month: "jun",
+        value: avgDataForGraph[5]
+      },
+      {
+        month: "jul",
+        value: avgDataForGraph[6]
+      },
+      {
+        month: "aug",
+        value: avgDataForGraph[7]
+      },
+      {
+        month: "sep",
+        value: avgDataForGraph[8]
+      },
+      {
+        month: "oct",
+        value: avgDataForGraph[9]
+      },
+      {
+        month: "nov",
+        value: avgDataForGraph[10]
+      },
+      {
+        month: "dec",
+        value: avgDataForGraph[11]
+      }
     ]);
   }, [select]);
 
   return (
     <div>
+      <ResponsiveContainer width="95%" height={200}>
+        {select === "ndvi" ? (
+          <BarChart className="graph" data={graphData}>
+            <CartesianGrid />
+            <XAxis dataKey="month" />
+            <YAxis type="number" domain={[0, 1]} />
+            <Bar dataKey="value" fill="#8884d8" />
+          </BarChart>
+        ) : (
+          <LineChart className="graph" data={graphData}>
+            <CartesianGrid />
+            <XAxis dataKey="month" />
+            <YAxis type="number" domain={[0, 25]} />
+            <Line dataKey="value" fill="#8884d8" />
+          </LineChart>
+        )}
+      </ResponsiveContainer>
       <select value={select} onChange={e => setSelect(e.target.value)}>
-        <option value="ndvi">ndvi</option>
-        <option value="precipitation">precipitation</option>
+        <option value="ndvi"> ndvi </option>
+        <option value="precipitation"> precipitation </option>
       </select>
-      {select === "ndvi" ? (
-        <BarChart width={600} height={300} data={graphData}>
-          <CartesianGrid />
-          <XAxis dataKey="month" />
-          <YAxis type="number" domain={[0, 1]} />
-          <Bar dataKey="value" fill="#8884d8" />
-        </BarChart>
-      ) : (
-        <LineChart width={600} height={300} data={graphData}>
-          <CartesianGrid />
-          <XAxis dataKey="month" />
-          <YAxis type="number" domain={[0, 25]} />
-          <Line dataKey="value" fill="#8884d8" />
-        </LineChart>
-      )}
     </div>
   );
 }

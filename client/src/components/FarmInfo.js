@@ -33,13 +33,13 @@ export default function FarmInfo({ farm }) {
           <span> Price: </span>
         </p>
         <div className="btn-container">
-          <button>BUY NOW</button>
-          <button>BID</button>
+          <button className="btn">BUY NOW</button>
+          <button className="btn">BID</button>
         </div>
       </div>
-      <div>
+      {/* <div>
         <select>FARM</select>
-      </div>
+      </div> */}
     </>
   );
 }

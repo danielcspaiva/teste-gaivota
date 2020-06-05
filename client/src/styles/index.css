@@ -27,13 +27,53 @@ nav img {
   height: 7vh;
 }
 
-#mapid { height: 180px; }
+#mapid {
+  height: 180px;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+}
 
 .content-container {
   display: flex;
 }
 
 .leaflet-container {
-  width: 500px;
-  height: 500px;
+  width: 30%;
+  height: 70%;
+  outline: 2px solid red;
+  margin: 20px;
+}
+
+.content-container {
+  width: 100vw;
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  outline: 2px solid blue;
+}
+
+.search-info-container {
+  width: 30%;
+  margin: 20px;
+  height: 70%;
+  outline: 2px solid green;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.btn {
+  color: blue;
+  background-color: white;
+  border: 2px solid blue;
+  padding: 10px 25px;
 }
