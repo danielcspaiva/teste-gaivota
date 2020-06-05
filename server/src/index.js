@@ -39,6 +39,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/data", require("../routes/getData"));
+app.use("/farms", require("../routes/getFarms"));
 
 app.listen(PORT !== "undefined" ? PORT : 5000, () => {
 	console.warn("App is running at http://localhost:" + PORT);

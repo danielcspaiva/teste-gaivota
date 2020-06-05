@@ -11,6 +11,15 @@ let dataControllers = {
 		Promise.all(promises)
 			.then((results) => res.json(results))
 			.catch((err) => console.warn(err));
+	},
+	getFarms: (req, res, next) => {
+		let files = fs.readdirSync("./data");
+
+		let filtereFiles = files.filter(file => file.includes(".GeoJSON"));
+
+		let farms = filtereFiles.map(file => JSON.parse(fs.readFileSync("./data/" + file)));
+
+		res.json(farms);
 	}
 };
 
