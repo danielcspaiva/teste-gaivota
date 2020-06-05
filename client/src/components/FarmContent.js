@@ -1,17 +1,14 @@
 import React, { useState, useEffect } from "react";
-// import Map from "./Map";
+import axios from "axios";
 import FarmInfo from "./FarmInfo";
 import MapLeaflet from "./MapLeaflet";
-import axios from "axios";
-import { Link } from "react-router-dom";
+import Graph from "./Graph";
 
-export default function Content() {
-  const [search, setSearch] = useState("");
+export default function FarmGraph() {
   const [center, setCenter] = useState([]);
   const [data, setData] = useState([]);
   const [farms, setFarms] = useState([]);
-  const [farm, setFarm] = useState({});
-  console.log(data);
+  const [farm, setFarm] = useState(null);
   useEffect(() => {
     axios
       .get("http://localhost:5000/farms")
@@ -27,24 +24,14 @@ export default function Content() {
         setFarm(res.data[0][0]);
       })
       .catch(err => console.log(err));
-  }, [search]);
+  }, []);
 
   return (
     <div className="content-container">
       <MapLeaflet center={center} farms={farms} />
       <div className="search-info-container">
-        <Link to={"/farm/" + farm.farm_id}>
-          <h1>{farm.name}</h1>
-        </Link>
-        <div>
-          <input
-            type="text"
-            placeholder="SEARCH BAR"
-            value={search}
-            onChange={e => setSearch(e.target.value)}
-          ></input>
-        </div>
-        <FarmInfo farm={farm} />
+        {data.length && farm && <Graph farm={farm} data={data} />}
+        {farm && <FarmInfo farm={farm} />}
       </div>
     </div>
   );

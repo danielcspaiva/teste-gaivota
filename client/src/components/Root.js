@@ -7,6 +7,7 @@ const Root = () => {
   return (
     <BrowserRouter>
       <Route path="/" component={App} />
+      <Route path="/:id" component={App} />
     </BrowserRouter>
   );
 };

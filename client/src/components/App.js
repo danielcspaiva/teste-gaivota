@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Route, Redirect, withRouter } from "react-router-dom";
 import { isAuthenticated } from "../auth";
 import Home from "../routes/home/";
+import Farm from "../routes/farm/";
 import Login from "../routes/login/";
 import { PropTypes } from "prop-types";
 
@@ -50,6 +51,7 @@ const App = props => {
       <header className="App-header">
         <Route path={`${match.url}app/home`} component={Home} />
         <Route path={`${match.url}login`} component={Login} />
+        <Route path={`${match.url}farm/:id`} component={Farm} />
       </header>
     </div>
   );
